@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // The first 10 natural numbers
+        document.write("<br>The first 10 natural numbers")
+        for (let i = 1; i <= 10; i++) {
+            document.write("<br>", i);
+        }
+
+        // The first 10 even numbers
+        document.write("<br>The first 10 even numbers")
+        let k = 2
+        for (let i = 1; i <= 10; i++) {
+            document.write("<br>", k);
+            k = k + 2
+        }
+
+        // The first 10 even numbers using for loop
+        document.write("<br>The first 10 even numbers using for loop")
+        let even = 2
+        while (even <= 20) {
+            document.write("<br>", even);
+            even = even + 2
+        }
+
+        // Fibanocci
+        function fib(n) {
+            if (n <= 1) return n;
+            return fib(n - 1) + fib(n - 2);
+        }
+        document.writeln(`<br>factorial of 10 is ${fib(10)}`)
+
+        // print odd number between 20 30
+        document.writeln('<br> print odd number between 20 30')
+        let start = 21
+        let end =30
+        for (let i = start;i<=end;i=i+2){
+            document.writeln(`<br>${i}`)
+        }
+        
+        // Pattern one
+        document.write("<br>The pattern is:")
+        for(i=1;i<=3;i++){
+            document.write("<br>")
+            for(j=1;j<=3;j++){
+                document.write("* ")
+            }
+
+        }
+
+        //Pattern Two
+        document.writeln('<br>')
+        for(let i=1;i<=3;i++){
+            for(let j=1;j<=i;j++){
+                document.write("* ")
+            }
+            document.write("<br>")
+        }
+        
+        //print 100 times
+        document.writeln('<br>')
+        for(let i=0;i<100;i++){
+            document.write("<br>I am batman")
+        }
+    
+        document.writeln('<br>----------------------------------Array----------------------------------')
+        //Array concept
+        let arr = [11,12,13,14,15]
+        document.writeln(`<br>sum of array index 2 and 3 :${arr[3]+arr[2]}`) //sum
+        document.writeln(`<br>div of array index 2 and 3 :${arr[3]/arr[2]}`) //div
+        document.writeln(`<br>min of array index 2 and 3 :${arr[3]-arr[2]}`) //minus
+        document.writeln(`<br>mul of array index 2 and 3 :${arr[3]+arr[2]}`) //mul
+
+        document.writeln('<br>----------------------------------Array-Operations---------------------------------')
+        //Array Operations
+        arr.push(10);
+        document.writeln(`<br>after push 10 :${arr}`)
+        arr.pop()
+        document.writeln(`<br>after pop :${arr}`)
+        arr.shift()
+        document.writeln(`<br>after shift:${arr}`)
+        arr.unshift(111)
+        document.writeln(`<br>after unshift :${arr}`)
+         
+        document.writeln('<br>----------------------------------Add data to arr---------------------------------')
+        let arr1=[]
+        for(i=1;i<=5;i++){
+            arr1[i]=i
+        }
+        document.writeln("<br>",arr1)
+        document.writeln("length of array is",arr1.length)
+        document.writeln('<br>-------------------for in (print index)----------------------')
+        let arr2=[2,4,6,8,10,11,12,14,16,18,20,22,24,26,28,30,32,34,36,38]
+        for (i in arr2){
+            document.writeln('<br>',i)
+        }
+        document.writeln('<br>-------------------for of print(value)----------------------')
+        let sum =0
+        for (i of arr2){
+            document.write('<br>',i)
+            sum +=i
+        }
+        document.writeln('<br>sum od the array is :',sum)
+
+        for(i=0;i<3;i++){
+            document.write("<br>")
+            let k=2
+            for(j=0;j<=i;j++){
+                for(;k>i;k--){
+                    document.write("&nbsp")
+                }
+                document.write("*")
+            }
+        }
+
+        //insert data to 2D ARRAY   
+        document.writeln('<br>----------------------------------Array----------------------------------')
+        let twoDArray = [[],[],[]]
+        for(i=0;i<3;i++){
+            for(j=0;j<3;j++){
+                twoDArray[i][j]=i+j
+            }
+        }
+         document.writeln('<br>')
+        for(i=0;i<3;i++){
+            for(j=0;j<3;j++){
+                document.writeln(twoDArray[i][j])
+            }
+            document.writeln('<br>')
+        }
+    
+        //String Manipulation  
+        document.writeln('<br>----------------------------------String Manipulation----------------------------------')
+        let k2 ="I love my country"
+        let text="", n=3
+        document.write("The length of string: ",k2.length)
+        document.write("<br>")
+        for(let i=5;i>1;i--){
+           
+            text+=k2[i]
+        }
+        document.writeln(text)
+        document.write("<br>The character at loc 2 is ",k2.charAt(2))
+
+        document.write("<br>The word is : ",k2.slice(2,6))
+        document.write("<br>The word is : ",k2.slice(2))
+        document.write("<br>The word is : ",k2.slice(-2))
+        document.write("<br>The word is : ",k2.slice(-12,-2))
+        document.write("<br>The word is : ",k2.substring(2,6))
+        document.write("<br>The word is : ",k2.substr(2,4))
+
+        document.write("<br>The word is : ",k2.toUpperCase())
+        document.write("<br>The word is : ",k2.toLowerCase())
+
+        document.write("<br>The word is : ",k2.concat(" and its heritage"))
+
+        let t ="  Hello Wold!        "
+        document.write("<br>The word is : ",t.trim())
+    
+        let url="www.kba.ai"
+        document.write("<br>The word is : ",url.split('.'))
+    </script>
+</body>
+
+</html>

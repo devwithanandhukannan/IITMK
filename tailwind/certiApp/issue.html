@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certificate Dapp</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Navbar -->
+  <div class="w-full bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">Certificate Dapp</h1>
+    <div class="space-x-6">
+      <a href="index.html" class="text-black">Home</a>
+      <span class="bg-blue-500 text-white px-3 py-1 rounded">Issue Certificate</span>
+    </div>
+  </div>
+
+  <div class="flex justify-center mt-10">
+    <div class="w-full max-w-xl bg-white shadow p-6 rounded-lg">
+      
+      <h2 class="text-xl font-bold mb-4 text-pink-500">Issue New Certificate</h2>
+
+      <form action="#" method="post" class="space-y-4">
+
+        <!-- Course -->
+        <div>
+          <label class="font-semibold">Select Course *</label>
+          <select name="course" class="w-full mt-1 border p-2 rounded">
+            <option>Certified Blockchain Associate</option>
+            <option>Certified Ethereum Developer</option>
+            <option>Certified Web3 Professional</option>
+          </select>
+        </div>
+
+        <!-- Certificate ID -->
+        <div>
+          <label class="font-semibold">Certificate ID *</label>
+          <input 
+            type="text" 
+            name="certificate_id"
+            placeholder="Certificate ID"
+            class="w-full border p-2 rounded mt-1"
+          >
+        </div>
+
+        <!-- Candidate Name -->
+        <div>
+          <label class="font-semibold">Candidate Name *</label>
+          <input 
+            type="text" 
+            name="candidate_name"
+            placeholder="Name"
+            class="w-full border p-2 rounded mt-1"
+          >
+        </div>
+
+        <!-- Grade -->
+        <div>
+          <label class="font-semibold">Select Grade *</label>
+          <select name="grade" class="w-full mt-1 border p-2 rounded">
+            <option>S</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+          </select>
+        </div>
+
+        <!-- Issue Date -->
+        <div>
+          <label class="font-semibold">Issue Date *</label>
+          <input type="date" name="issue_date" class="w-full border p-2 rounded mt-1">
+        </div>
+
+        <div class="text-center">
+          <button 
+            type="submit"
+            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+            Issue Certificate
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
