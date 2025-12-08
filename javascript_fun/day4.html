@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log('-----------------Map----------------');
+        let number = [1,2,3,4,5]
+        let doubled_arr = number.map((num,index,arr)=>{
+            console.log(num,index,arr);
+            return num*2
+        })
+        console.log(doubled_arr);
+
+        console.log('-----------------Filter----------------');
+        let even = number.filter((val,index,arr)=>{
+            console.log(val,index,arr);
+            return val%2 == 0
+
+        })
+        console.log(even);
+
+        console.log('-----------------Reduce----------------');
+        let sum = number.reduce((total,n)=>{
+            console.log(total,n);
+            return total+n
+        },0)
+        console.log(sum);
+        
+        console.log('-----------------Initize array with 0----------------');
+
+        let arr = new Array(10).fill(10)
+        console.log(arr);
+        
+        
+        
+    </script>
+</body>
+</html>
