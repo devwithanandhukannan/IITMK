@@ -1,148 +1,113 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <title>Hangout – Edit Profile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="min-h-screen bg-black text-white antialiased">
+
   <main class="w-full max-w-2xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
-    <!-- Header -->
+
     <header class="mb-8">
       <h1 class="text-sm font-semibold mb-6">Edit Profile</h1>
 
-      <div class="flex flex-wrap items-start justify-between gap-4">
-        <!-- name + email -->
+      <div class="flex flex-wrap justify-between gap-4">
         <div>
-          <h2 id="displayName" class="text-xl font-semibold">Kneazllle</h2>
-          <p id="displayEmail" class="text-xs text-gray-300 mt-1">
+          <h2 class="text-xl font-semibold">Kneazllle</h2>
+          <p class="text-xs text-gray-300 mt-1">
             connect.anandhukannan@gmail.com
           </p>
         </div>
 
-        <!-- stats -->
         <div class="flex gap-8 text-xs text-right">
           <div>
-            <div id="followersCount" class="font-semibold text-base">300</div>
-            <div class="text-gray-400 mt-0.5">Followers</div>
+            <div class="font-semibold text-base">300</div>
+            <div class="text-gray-400">Followers</div>
           </div>
           <div>
-            <div id="matchCount" class="font-semibold text-base">1000+</div>
-            <div class="text-gray-400 mt-0.5">Total match</div>
+            <div class="font-semibold text-base">1000+</div>
+            <div class="text-gray-400">Total match</div>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- Username card -->
-    <section
-      class="mb-6 rounded-2xl bg-white/5 border border-white/10 px-4 sm:px-5 py-4 flex flex-col gap-4">
+    <form class="mb-6 rounded-2xl bg-white/5 border border-white/10 px-4 py-4">
       <div class="flex items-center gap-3">
-        <div
-          class="h-10 w-10 rounded-full bg-white text-black flex items-center justify-center text-sm font-semibold">
+        <div class="h-10 w-10 rounded-full bg-white text-black flex items-center justify-center font-semibold">
           K
         </div>
+
         <div class="flex-1">
-          <label for="username" class="block text-[11px] font-medium text-gray-300 mb-1">
-            username
+          <label class="block text-[11px] text-gray-300 mb-1">
+            Username
           </label>
-          <input id="username" type="text" value="Kneazllle"
-            class="w-full rounded-lg bg-black border border-white/15 px-3 py-2 text-xs outline-none focus:border-white placeholder:text-gray-500" />
+          <input
+            name="username"
+            value="Kneazllle"
+            class="w-full rounded-lg bg-black border border-white/15 px-3 py-2 text-xs outline-none focus:border-white"
+          />
         </div>
+
         <button
-          class="mt-6 sm:mt-5 px-4 py-1.5 rounded-lg text-xs font-semibold bg-white text-black hover:bg-gray-200 transition">
-          update
+          type="submit"
+          class="mt-6 px-4 py-1.5 rounded-lg text-xs font-semibold bg-white text-black hover:bg-gray-200">
+          Update
         </button>
       </div>
-    </section>
+    </form>
 
-    <!-- About -->
-    <section class="mb-5 space-y-2">
-      <label for="about" class="text-xs font-medium">About</label>
-      <textarea id="about" rows="3" placeholder="Tell people a bit about yourself"
-        class="w-full rounded-xl bg-black border border-white/15 px-3 py-2 text-xs outline-none focus:border-white placeholder:text-gray-500">Full stack dev</textarea>
-    </section>
+    <form class="mb-6 space-y-2">
+      <label class="text-xs font-medium">About</label>
+      <textarea
+        name="about"
+        rows="3"
+        class="w-full rounded-xl bg-black border border-white/15 px-3 py-2 text-xs outline-none focus:border-white"
+      >Full stack dev</textarea>
 
-    <!-- Change password -->
+    </form>
+
     <section class="mb-8">
-      <a    
+      <a
         href="./forget_passwd.html"
-        class="px-4 py-2 rounded-lg text-xs font-semibold bg-white text-black hover:bg-gray-200 transition">
-        change password
-    </a>
+        class="inline-block px-4 py-2 rounded-lg text-xs font-semibold bg-white text-black hover:bg-gray-200">
+        Change password
+      </a>
     </section>
 
-    <!-- Interests -->
     <section class="space-y-3">
-      <label class="text-xs font-medium">Interest</label>
+      <label class="text-xs font-medium">Interests</label>
 
-      <div class="flex gap-2">
-        <input id="interestInput" type="text" placeholder="#hacking"
-          class="flex-1 rounded-xl bg-black border border-white/15 px-3 py-2 text-xs outline-none focus:border-white placeholder:text-gray-500" />
-        <button id="addInterestBtn"
-          class="px-4 py-2 rounded-lg text-xs font-semibold bg-white text-black hover:bg-gray-200 transition">
+      <form class="flex gap-2">
+        <input
+          name="interest"
+          placeholder="#hacking"
+          class="flex-1 rounded-xl bg-black border border-white/15 px-3 py-2 text-xs outline-none focus:border-white"
+        />
+        <button
+          type="submit"
+          class="px-4 py-2 rounded-lg text-xs font-semibold bg-white text-black hover:bg-gray-200">
           Add
         </button>
-      </div>
+      </form>
 
-      <div id="interestTags" class="flex flex-wrap gap-2 text-[11px]"></div>
+      <div class="flex flex-wrap gap-2 text-[11px]">
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/5 border border-white/10">
+          #cybersecurity
+          <a href="#" class="text-gray-400 hover:text-white">✕</a>
+        </span>
+
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/5 border border-white/10">
+          #study
+          <a href="#" class="text-gray-400 hover:text-white">✕</a>
+        </span>
+      </div>
     </section>
+
   </main>
 
-  <script>
-    // initial interests
-    const interests = ['#cybersecurity', '#study'];
-
-    const interestContainer = document.getElementById('interestTags');
-    const interestInput = document.getElementById('interestInput');
-    const addInterestBtn = document.getElementById('addInterestBtn');
-
-    function renderInterests() {
-      interestContainer.innerHTML = '';
-      interests.forEach((tag, index) => {
-        const chip = document.createElement('button');
-        chip.type = 'button';
-        chip.className =
-          'inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-100';
-        chip.innerHTML = `<span>${tag}</span><span data-index="${index}" class="text-xs text-gray-400">✕</span>`;
-        interestContainer.appendChild(chip);
-      });
-    }
-
-    function addInterest() {
-      let value = interestInput.value.trim();
-      if (!value) return;
-      if (!value.startsWith('#')) value = '#' + value;
-      if (!interests.includes(value)) {
-        interests.push(value);
-        renderInterests();
-      }
-      interestInput.value = '';
-    }
-
-    addInterestBtn.addEventListener('click', addInterest);
-    interestInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        addInterest();
-      }
-    });
-
-    interestContainer.addEventListener('click', (e) => {
-      const idx = e.target.getAttribute('data-index');
-      if (idx !== null) {
-        interests.splice(Number(idx), 1);
-        renderInterests();
-      }
-    });
-
-    renderInterests();
-  </script>
 </body>
-
 </html>

@@ -23,13 +23,10 @@
     </div>
   </header>
 
-  <!-- MAIN – full-width layout -->
   <main class="px-2 sm:px-4 lg:px-6 py-4 h-[calc(100vh-3.25rem)]">
     <div class="h-full flex gap-3 sm:gap-4">
-      <!-- LEFT -->
       <aside
         class="w-60 sm:w-64 flex flex-col bg-white/5 border border-white/10 rounded-2xl backdrop-blur-xl shadow-[0_0_40px_rgba(0,0,0,0.8)]">
-        <!-- search -->
         <div class="p-3 border-b border-white/10">
           <div class="text-xs font-semibold mb-2 text-gray-100">
             Interest history
@@ -39,16 +36,11 @@
               class="bg-transparent border-none outline-none text-xs w-full placeholder:text-gray-500" />
           </div>
         </div>
-
-        <!-- history list -->
          <a href="./chat_history.html">
             <div id="historyList" class="flex-1 overflow-y-auto px-2 py-2 space-y-1 text-sm">
             
         </div>
          </a>
-        
-
-        <!-- user profile bottom -->
         <div class="relative border-t border-white/10 px-3 py-2.5 flex items-center justify-between">
           <button id="profileButton" class="flex items-center gap-2 text-xs w-full text-left">
             <div id="profileAvatar"
@@ -65,25 +57,22 @@
             </div>
             <span class="text-gray-400 text-xs">⋮</span>
           </button>
-
-          <!-- profile menu -->
           <div id="profileMenu"
-            class="hidden absolute bottom-12 left-3 w-40 bg-black border border-white/10 rounded-xl shadow-lg text-xs overflow-hidden">
+            class="hidden absolute bottom-12 left-3 w-40 bg-black border border-white/10 rounded-xl shadow-lg text-xs overflow-hidden flex flex-col">
             <a href="./settings.html" class="w-full text-left px-3 py-2 hover:bg-white/5 transition-colors">
               Settings
             </a>
-            <button
+            <a
+              href="./index.html"
               class="w-full text-left px-3 py-2 text-red-300 hover:bg-white/5 transition-colors">
               Logout
-            </button>
+          </a>
           </div>
         </div>
       </aside>
 
-      <!-- CENTER -->
       <section
         class="flex-1 flex flex-col bg-white/5 border border-white/50 rounded-2xl backdrop-blur-xl shadow-[0_0_40px_rgba(0,0,0,0.8)] px-4 sm:px-6 py-4 space-y-5">
-        <!-- title -->
         <div class="flex items-center justify-between">
           <div>
             <h2 class="text-sm sm:text-base font-semibold">
@@ -95,7 +84,6 @@
           </div>
         </div>
 
-        <!-- interests input -->
         <div class="space-y-3">
           <div class="flex items-center justify-between">
             <h3 class="text-xs font-semibold uppercase tracking-[0.2em]">
@@ -116,15 +104,12 @@
           <div id="interestTags" class="flex flex-wrap gap-2 text-[11px]"></div>
         </div>
 
-        <!-- Go + mic/cam controls -->
         <div class="flex-1 flex flex-col items-center justify-center gap-4">
-          <!-- Go button -->
           <a id="goButton" href="./chat.html"
             class="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white text-black text-xl sm:text-2xl font-semibold flex items-center justify-center hover:scale-105 hover:bg-gray-100 transition-transform">
             Go
           </a>
 
-          <!-- mic & camera toggles -->
           <div class="flex flex-wrap items-center justify-center gap-3">
             <button id="micToggle"
               class="px-4 py-1.5 rounded-full text-xs bg-black/60 border border-white/30 flex items-center gap-1 text-white">
@@ -144,7 +129,6 @@
         </div>
       </section>
 
-      <!-- RIGHT: friends -->
       <aside
         class="w-60 sm:w-64 hidden md:flex flex-col bg-white/5 border border-white/10 rounded-2xl backdrop-blur-xl shadow-[0_0_40px_rgba(0,0,0,0.8)]">
         <div class="px-3 py-3 border-b border-white/10 flex items-center justify-between">
@@ -168,7 +152,6 @@
       user: {
         name: "Alex Night",
         handle: "@alex",
-        avatarColor: "", // we style avatar directly in HTML for black/white theme
       },
       history: [
         {
@@ -234,7 +217,7 @@
     };
 
     document.addEventListener("DOMContentLoaded", () => {
-      /* ------- Profile (bottom left) ------- */
+      
       const profileName = document.getElementById("profileName");
       const profileHandle = document.getElementById("profileHandle");
       const profileAvatar = document.getElementById("profileAvatar");
@@ -243,21 +226,17 @@
 
       profileName.textContent = dashboardData.user.name;
       profileHandle.textContent = dashboardData.user.handle;
-      profileAvatar.textContent = dashboardData.user.name[0] || "U";
-      if (dashboardData.user.avatarColor) {
-        profileAvatar.classList.add(...dashboardData.user.avatarColor.split(" "));
-      }
+
+
 
       profileButton.addEventListener("click", (e) => {
         e.stopPropagation();
         profileMenu.classList.toggle("hidden");
       });
 
-      document.addEventListener("click", () => {
-        profileMenu.classList.add("hidden");
-      });
+ 
+      // history
 
-      /* ------- Interest history (left) ------- */
       const historyList = document.getElementById("historyList");
       const historySearch = document.getElementById("historySearch");
 
@@ -269,12 +248,10 @@
           .filter((h) => h.interest.toLowerCase().includes(lower))
           .forEach((entry) => {
             const row = document.createElement("div");
-            row.className =
-              "rounded-xl px-2.5 py-2 hover:bg-white/10 transition-colors cursor-pointer";
+            row.className = "rounded-xl px-2.5 py-2 hover:bg-white/10 transition-colors cursor-pointer";
 
             const top = document.createElement("div");
-            top.className =
-              "flex items-center justify-between text-xs font-semibold";
+            top.className ="flex items-center justify-between text-xs font-semibold";
             const interest = document.createElement("span");
             interest.textContent = entry.interest;
             const date = document.createElement("span");
@@ -284,15 +261,13 @@
             top.appendChild(date);
 
             const bottom = document.createElement("div");
-            bottom.className =
-              "mt-1 flex items-center justify-between text-[11px] text-gray-200";
+            bottom.className ="mt-1 flex items-center justify-between text-[11px] text-gray-200";
 
             const stats = document.createElement("span");
-            stats.textContent = `${entry.sessions} session${entry.sessions !== 1 ? "s" : ""
-              }`;
+            stats.textContent = `${entry.sessions} session${entry.sessions !== 1 ? "s" : ""}`;
 
             const last = document.createElement("span");
-            last.className = "text-gray-400";
+            last.className = "text-red-400";
             last.textContent = `Last: ${entry.lastActive}`;
 
             bottom.appendChild(stats);
@@ -305,9 +280,8 @@
           });
 
         if (!historyList.children.length) {
-          const empty = document.createElement("div");
-          empty.className =
-            "text-[11px] text-gray-400 px-2 py-4 text-center";
+          const empty = document.createElement("div")
+          empty.className ="text-[11px] text-gray-400 px-2 py-4 text-center";
           empty.textContent = "No history for that interest yet.";
           historyList.appendChild(empty);
         }
@@ -317,17 +291,15 @@
         renderHistory(e.target.value)
       );
 
-      /* ------- Friends (right) ------- */
+      // Friends
       const friendList = document.getElementById("friendList");
 
       dashboardData.friends.forEach((friend) => {
         const row = document.createElement("div");
-        row.className =
-          "flex items-center gap-2 rounded-xl px-2.5 py-2 hover:bg-white/10 transition-colors";
+        row.className ="flex items-center gap-2 rounded-xl px-2.5 py-2 hover:bg-white/10 transition-colors";
 
         const avatar = document.createElement("div");
-        avatar.className =
-          "h-8 w-8 rounded-full flex items-center justify-center text-xs font-semibold text-black";
+        avatar.className ="h-8 w-8 rounded-full flex items-center justify-center text-xs font-semibold text-black";
         avatar.classList.add(...friend.color.split(" "));
         avatar.textContent = friend.name[0] || "?";
 
@@ -362,7 +334,7 @@
         friendList.appendChild(row);
       });
 
-      /* ------- Interests (center) ------- */
+
       const interestContainer = document.getElementById("interestTags");
       const interestInput = document.getElementById("interestInput");
       const addInterestBtn = document.getElementById("addInterestBtn");
@@ -379,27 +351,9 @@
       }
       renderInterests();
 
-      function addInterestFromInput() {
-        let value = interestInput.value.trim();
-        if (!value) return;
-        if (!value.startsWith("#")) value = "#" + value;
-        if (!dashboardData.interests.includes(value)) {
-          dashboardData.interests.push(value);
-          renderInterests();
-        }
-        interestInput.value = "";
-      }
 
-      addInterestBtn.addEventListener("click", addInterestFromInput);
-      interestInput.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          addInterestFromInput();
-        }
-      });
 
-      /* ------- Go button + mic/cam toggles ------- */
-      const goButton = document.getElementById("goButton");
+     
       const goStatus = document.getElementById("goStatus");
 
       const micToggle = document.getElementById("micToggle");
@@ -432,7 +386,8 @@
 
       updateMic();
       updateCam();
-
+      console.log(micOn);
+      
       micToggle.addEventListener("click", () => {
         micOn = !micOn;
         updateMic();
@@ -443,16 +398,7 @@
         updateCam();
       });
 
-      goButton.addEventListener("click", () => {
-        const interests =
-          dashboardData.interests.length > 0
-            ? dashboardData.interests.join(", ")
-            : "no interests";
-        goStatus.textContent =
-          `Searching for a match with ${interests} · ` +
-          `Mic ${micOn ? "enabled" : "muted"} · ` +
-          `Video ${camOn ? "enabled" : "disabled"}`;
-      });
+      
     });
   </script>
 </body>
